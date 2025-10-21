@@ -1,1 +1,16 @@
-
+[
+  {
+    "timestamp": "2025-10-21T12:00:00.000Z",
+    "companySize": "2\u20135",
+    "state": "CO",
+    "usesRebates": "Sometimes",
+    "avgProjectSize": "$5k\u2013$25k",
+    "barriers": [
+      "Paperwork burden",
+      "Eligibility confusion"
+    ],
+    "whoFiles": "Distributor or partner",
+    "findRebates": "Distributor newsletters",
+    "email": "sample@demo.com"
+  }
+]
