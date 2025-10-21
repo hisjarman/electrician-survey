@@ -1,0 +1,71 @@
+
+<% layout('layout') -%>
+<section class="card">
+  <h2>Live Dashboard</h2>
+  <p>Total responses: <strong><%= total %></strong></p>
+
+  <div class="grid">
+    <div>
+      <h3>Use of Rebates</h3>
+      <canvas id="usesChart"></canvas>
+    </div>
+    <div>
+      <h3>Who Files Paperwork</h3>
+      <canvas id="whoFilesChart"></canvas>
+    </div>
+    <div>
+      <h3>Barriers</h3>
+      <canvas id="barriersChart"></canvas>
+    </div>
+    <div>
+      <h3>Project Size Distribution</h3>
+      <canvas id="projectsChart"></canvas>
+    </div>
+  </div>
+</section>
+
+<script>
+  const usesData = {
+    labels: Object.keys(<%- JSON.stringify(uses) %>),
+    values: Object.values(<%- JSON.stringify(uses) %>)
+  };
+
+  const whoFilesData = {
+    labels: Object.keys(<%- JSON.stringify(whoFilesCount) %>),
+    values: Object.values(<%- JSON.stringify(whoFilesCount) %>)
+  };
+
+  const barriersData = (() => {
+    const obj = <%- JSON.stringify(barriersCount) %>;
+    return { labels: Object.keys(obj), values: Object.values(obj) };
+  })();
+
+  const projectsData = {
+    labels: Object.keys(<%- JSON.stringify(avgProjectBuckets) %>),
+    values: Object.values(<%- JSON.stringify(avgProjectBuckets) %>)
+  };
+
+  function makeBarChart(ctxId, labels, data) {
+    const ctx = document.getElementById(ctxId).getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: '#',
+          data: data
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, ticks: { precision:0 } } }
+      }
+    });
+  }
+
+  makeBarChart('usesChart', usesData.labels, usesData.values);
+  makeBarChart('whoFilesChart', whoFilesData.labels, whoFilesData.values);
+  makeBarChart('barriersChart', barriersData.labels, barriersData.values);
+  makeBarChart('projectsChart', projectsData.labels, projectsData.values);
+</script>

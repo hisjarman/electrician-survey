@@ -1,0 +1,76 @@
+
+<section class="card">
+  <h2>LED Rebate Awareness Survey</h2>
+  <p>Please answer 6–8 quick questions. Estimated time: 60 seconds.</p>
+  <form method="POST" action="/submit" class="form">
+    <label>
+      Company size
+      <select name="companySize" required>
+        <option value="">Select</option>
+        <option>Solo</option>
+        <option>2–5</option>
+        <option>6–20</option>
+        <option>21–50</option>
+        <option>50+</option>
+      </select>
+    </label>
+
+    <label>
+      State (US)
+      <input name="state" placeholder="e.g., CO, NY, AZ" maxlength="2" required />
+    </label>
+
+    <label>
+      Do you currently use utility or state rebates for LED jobs?
+      <select name="usesRebates" required>
+        <option value="">Select</option>
+        <option>Yes</option>
+        <option>Sometimes</option>
+        <option>No</option>
+      </select>
+    </label>
+
+    <label>
+      Typical project size (materials + labor)
+      <select name="avgProjectSize" required>
+        <option value="">Select</option>
+        <option>Under $5k</option>
+        <option>$5k–$25k</option>
+        <option>$25k–$100k</option>
+        <option>Over $100k</option>
+      </select>
+    </label>
+
+    <fieldset class="checkboxes">
+      <legend>Biggest barriers to rebates (check all that apply)</legend>
+      <label><input type="checkbox" name="barriers" value="Paperwork burden"> Paperwork burden</label>
+      <label><input type="checkbox" name="barriers" value="Slow payout"> Slow payout</label>
+      <label><input type="checkbox" name="barriers" value="Eligibility confusion"> Eligibility confusion</label>
+      <label><input type="checkbox" name="barriers" value="Product spec mismatch"> Product spec mismatch</label>
+      <label><input type="checkbox" name="barriers" value="Not worth the effort"> Not worth the effort</label>
+    </fieldset>
+
+    <label>
+      Who usually files rebate paperwork?
+      <select name="whoFiles" required>
+        <option value="">Select</option>
+        <option>We do in-house</option>
+        <option>Distributor or partner</option>
+        <option>Customer</option>
+        <option>We skip rebates</option>
+      </select>
+    </label>
+
+    <label>
+      How do you find rebate opportunities?
+      <input name="findRebates" placeholder="e.g., distributor, utility sites, word of mouth" />
+    </label>
+
+    <label>
+      Contact email (optional)
+      <input name="email" type="email" placeholder="name@company.com" />
+    </label>
+
+    <button type="submit" class="btn">Submit</button>
+  </form>
+</section>
