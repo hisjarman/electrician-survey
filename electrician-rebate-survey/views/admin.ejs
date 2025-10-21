@@ -1,0 +1,37 @@
+
+<% layout('layout') -%>
+<section class="card">
+  <h2>Raw Responses (<%= responses.length %>)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Timestamp</th>
+          <th>Company Size</th>
+          <th>State</th>
+          <th>Uses Rebates</th>
+          <th>Avg Project</th>
+          <th>Barriers</th>
+          <th>Who Files</th>
+          <th>Find Rebates</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% responses.forEach(r => { %>
+          <tr>
+            <td><%= r.timestamp %></td>
+            <td><%= r.companySize %></td>
+            <td><%= r.state %></td>
+            <td><%= r.usesRebates %></td>
+            <td><%= r.avgProjectSize %></td>
+            <td><%= (r.barriers || []).join(", ") %></td>
+            <td><%= r.whoFiles %></td>
+            <td><%= r.findRebates %></td>
+            <td><%= r.email %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</section>
